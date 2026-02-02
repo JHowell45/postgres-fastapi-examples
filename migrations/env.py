@@ -5,6 +5,8 @@ from sqlalchemy import engine_from_config, pool
 from sqlmodel import SQLModel
 
 from app.deps.config import Settings, get_settings
+from app.models.bands import Band  # noqa
+from app.models.music import Album, Song  # noqa
 
 settings: Settings = get_settings()
 

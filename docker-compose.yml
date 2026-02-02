@@ -26,6 +26,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    develop:
+      watch:
+        - action: sync+restart
+          path: ./app
+          target: /app/app
+        - action: rebuild
+          path: ./uv.lock
+          target: /api/uv.lock
+    volumes:
+      - ./migrations:/app/migrations
     depends_on:
       db:
         condition: service_healthy
