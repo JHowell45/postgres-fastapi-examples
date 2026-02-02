@@ -22,3 +22,7 @@ class Settings(BaseSettings):
             password=self.DB_PASSWORD,
             path=self.DB_NAME,
         )
+
+
+def get_settings() -> Settings:
+    return Settings()
