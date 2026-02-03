@@ -4,7 +4,8 @@ set shell := ["powershell.exe", "-c"]
 
 alias cm := create-migration
 alias stop := dev-stop
-alias gcm := git-commit-push
+alias gcm := git-commit
+alias gcp := git-commit-push
 
 dev:
     docker-compose watch
@@ -21,6 +22,10 @@ create-migration message:
 
 cli:
     docker-compose exec app python app/cli.py
+
+git-commit message:
+    git add *
+    git commit -m "{{ message }}"
 
 git-commit-push message:
     git add *
