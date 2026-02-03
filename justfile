@@ -4,6 +4,7 @@ set shell := ["powershell.exe", "-c"]
 
 alias cm := create-migration
 alias stop := dev-stop
+alias gp := git-push
 alias gcm := git-commit
 alias gcp := git-commit-push
 
@@ -26,6 +27,9 @@ cli:
 git-commit message:
     git add *
     git commit -m "{{ message }}"
+
+git-push:
+    git push
 
 git-commit-push message:
     git add *
