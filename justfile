@@ -4,6 +4,7 @@ set shell := ["powershell.exe", "-c"]
 
 alias cm := create-migration
 alias stop := dev-stop
+alias gcm := git-commit-push
 
 dev:
     docker-compose watch
@@ -16,7 +17,12 @@ reload:
     docker-compose watch
 
 create-migration message:
-    docker-compose exec app alembic revision --autogenerate -m {{ message }}""
+    docker-compose exec app alembic revision --autogenerate -m "{{ message }}"
 
 cli:
     docker-compose exec app python app/cli.py
+
+git-commit-push message:
+    git add *
+    git commit -m "{{ message }}"
+    git push
