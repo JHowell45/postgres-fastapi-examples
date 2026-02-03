@@ -9,7 +9,7 @@ from app.resources.bands import BandPublic
 from app.validators.bands import BandCreate
 from app.validators.core import BaseParams
 
-router = APIRouter(prefix="/bands")
+router = APIRouter(prefix="/bands", tags=["Bands"])
 
 
 @router.get("/", response_model=list[BandPublic])

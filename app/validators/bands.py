@@ -1,5 +1,5 @@
-from sqlmodel import SQLModel
+from pydantic import BaseModel
 
 
-class BandCreate(SQLModel):
+class BandCreate(BaseModel):
     name: str
